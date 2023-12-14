@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>products</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <nav class="bg-black text-white flex flex-row  h-[70px] justify-between p-3">
+        <h2 >pr-products</h2>
+        <button class="bg-white text-black p-3 h-[40px] rounded-md hover:bg-sky-700 "><a class="font-bold" href="./firebase/productDetail/addProduct.html">Add products</a></button>
+    </nav>
+    <h1 class="font-bold text-3xl m-5">All products</h1>
+    <div id="product-holder" class="flex gap-4 mt-3 flex-wrap p-2">
+
+    </div>
+
+    <script type="module" src="./scripts/showProducts.js"></script>
+</body>
+</html>

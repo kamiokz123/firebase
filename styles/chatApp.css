@@ -1,0 +1,125 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+
+
+.chat-app-screen{
+    background-color: rgba(128, 128, 128, 0.332);
+    width: 60%;
+    height: 80vh;
+    border: 1px solid black;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+.chat-app-screen h1{
+    text-align: center;
+}
+
+#chat-screen{
+    background-color: white;
+    height: 80%;
+    padding: 10px;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.screen-footer{
+    display: flex;
+    justify-content: space-between;
+}
+
+.screen-footer #msgInput{
+    padding: 5px;
+    width: 85%;
+    font-size: 1.2rem;
+}
+
+.screen-footer #sendBtn{
+    background-color: rgba(60, 239, 60, 0.504);
+    width: 100px;
+    font-size: 1.2rem;
+    padding: 10px;
+    border-radius: 30px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    -ms-border-radius: 30px;
+    -o-border-radius: 30px;
+}
+
+ .left{
+    text-align: left;
+    align-self: flex-start;
+    background-color: rgba(128, 128, 128, 0.527);
+    max-width: 50%;
+    padding: 8px;
+    font-size: 1.2rem;
+    border-radius: 16px;
+    -webkit-border-radius: 16px;
+    -moz-border-radius: 16px;
+    -ms-border-radius: 16px;
+    -o-border-radius: 16px;
+}
+
+.right{
+    text-align: right;
+    align-self: flex-end;
+    background-color: rgba(14, 163, 14, 0.559);
+    max-width: 50%;
+    padding: 8px;
+    font-size: 1.2rem;
+    border-radius: 16px;
+    -webkit-border-radius: 16px;
+    -moz-border-radius: 16px;
+    -ms-border-radius: 16px;
+    -o-border-radius: 16px;
+}
+
+.left span{
+    font-size: 0.8rem;
+    margin: 5px;
+}
+
+.right span{
+    font-size: 0.8rem;
+    margin: 5px;
+
+}
+
+
+@media (max-width: 767px) {
+    body {
+        background-color: yellow;
+    }
+    .chat-app-screen{
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .screen-footer #sendBtn{
+        width: 70px;
+        font-size: 1rem;
+    }
+
+    .screen-footer #msgInput{
+        width: 80%;
+        margin: 3px;
+        font-size: 1rem;
+    }
+
+
+}

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>saylani.com</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+        }
+
+        .form-input1 {
+            padding: 10px;
+            border: 1px solid rgba(0, 0, 0, 0.233);
+            margin: 10px;
+        }
+
+        .form-input2 {
+            padding: 10px;
+            border: 1px solid rgba(0, 0, 0, 0.233);
+            margin: 10px;
+        }
+        .profile-img{
+            width: 140px;
+            height: 130px;
+            margin: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main flex flex-col">
+        <h1 class="text-3xl font-bold text-center m-2">saylani Mass IT trainig</h1>
+        <button class="bg-[#FFFFF8] border w-[150px] p-2 rounded-lg self-center m-3 hover:bg-blue-500 hover:text-white"><a
+                href="./studentCard.html">download id Card </a></button>
+
+        <form action="#" id="user-form" class=" flex  flex-col m-12 justify-center align-center">
+
+            <div class="form-div1 flex flex-col sm:flex-row gap-[16px] w-[100%] justify-center align-center">
+                
+                <div class="form-div1-div1 flex flex-col w-[100%]">
+                    <select name="" id="city-input" class="form-input1" required>
+                        <option value="">Select city</option>
+                        <option value="karachi">karachi</option>
+                    </select>
+                    <input type="text" placeholder="Full Name" id="user-full-name" class="form-input1" required>
+                    <input type="email" placeholder="Email" id="user-email" class="form-input1" required>
+                    <input type="number" name="" id="user-cnic" placeholder="CNIC" class="form-input1" required>
+                    <label for="user-dob" class="block m-2">date of birth:</label>
+                    <input type="date" name="" id="user-dob" class="form-input1" required>
+                </div>
+
+                <div class="form-div1-div2 flex flex-col w-[100%]">
+
+                    <select name="" id="user-course" class="form-input1" required>
+                        <option value="">Select course or event</option>
+                        <option value="web and app development">web & app development</option>
+                    </select>
+                    <input type="text" name="" id="father-name" class="form-input1" placeholder="Father Name" required>
+                    <input type="number" name="" id="user-phone" placeholder="Phone" class="form-input1" required>
+                    <input type="number" name="" id="father-cnic" placeholder="Father Cnic" class="form-input1" required>
+                    <label for="gender-input" class="block m-2"> Select gender:</label>
+                    <select name=""  class="form-input1" id="gender-input" required>
+                        <option value="">select Gender</option>
+                        <option value="male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                </div>
+
+            </div>
+
+
+            <div class="form-div2 flex flex-col">
+                <input type="text" class="form-input2" placeholder="Address" id="address-input" required>
+                <input type="text" class="form-input2" placeholder="Last qualification" id="qualification-input" required>
+                <input type="text" class="form-input2" placeholder="Do you have laptop?" id="laptop-input" required>
+                <label for="img-btn" class="m-2">Upload image: </label>
+                <div class="select-image-div flex flex-col sm:flex-row  gap-2 ">
+                    <div id="user-img-holder" class="">
+
+                    </div>
+                    <div class="flex flex-col">
+                        
+                        <button type="button" id="img-btn" class="p-[50px] w-[140px] border m-5 rounded-lg bg-[#FFFFF8]">Upload</button>
+                    </div>
+                </div>
+            </div>
+
+             
+            <p id="progress-detail"></p>
+
+            <button type="submit" class="bg-blue-500 w-[100%] text-white p-2 rounded-md mt-7">SUBMIT</button>
+        </form>
+    </div>
+
+
+
+
+    <script type="module" src="./scripts/formPage.js"></script>
+</body>
+
+</html>
