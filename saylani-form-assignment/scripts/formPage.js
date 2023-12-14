@@ -1,4 +1,4 @@
-import { ref, Sref, getStorage, uploadBytesResumable, getDownloadURL, db, push, set } from "http://127.0.0.1:5500/firebase/firebaseConfig.js";
+import { ref, Sref, getStorage, uploadBytesResumable, getDownloadURL, db, push, set } from "http://127.0.0.1:5500/firebase-config/firebaseConfig.js";
 
 let imageFile;
 

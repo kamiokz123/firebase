@@ -1,4 +1,4 @@
-import { get, child, db, ref } from "../firebase/firebaseConfig.js"
+import { get, child, db, ref } from "../firebase-config/firebaseConfig.js"
 
 const products = [];
 const productsHolder = document.getElementById("product-holder");

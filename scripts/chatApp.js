@@ -1,4 +1,4 @@
-import { db, set, ref, push, onChildAdded } from "../firebase/firebaseConfig.js"
+import { db, set, ref, push, onChildAdded } from "../firebase-config/firebaseConfig.js"
 
 
 const msgInput = document.getElementById("msgInput");
