@@ -1,7 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
-import { getDatabase, set, ref , get, child, update, remove ,push,onChildAdded} from "https://www.gstatic.com/firebasejs/10.7.0/firebase-database.js";
-import { getStorage, ref as Sref ,uploadBytesResumable, getDownloadURL ,uploadBytes   } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-storage.js";
-import {GoogleAuthProvider , getAuth, signInWithPopup, GithubAuthProvider , FacebookAuthProvider } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js"
+import { getDatabase, set, ref , get, child, update, remove ,push,onChildAdded , query , orderByChild,equalTo} from "https://www.gstatic.com/firebasejs/10.7.0/firebase-database.js";
+import { getStorage, ref as Sref ,uploadBytesResumable, getDownloadURL ,uploadBytes    } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-storage.js";
+import {GoogleAuthProvider , getAuth, signInWithPopup, GithubAuthProvider , FacebookAuthProvider ,createUserWithEmailAndPassword,signInWithEmailAndPassword,sendPasswordResetEmail} from "https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js"
 
 
 const firebaseConfig = {
@@ -46,5 +46,11 @@ export {
     signInWithPopup,
     GoogleAuthProvider,
     githubProvider,
-    fbProvider
+    fbProvider,
+    query,
+    orderByChild,
+    equalTo,
+    createUserWithEmailAndPassword,
+    signInWithEmailAndPassword,
+    sendPasswordResetEmail
 }

@@ -1,8 +1,24 @@
-import { ref, Sref, getStorage, uploadBytesResumable, getDownloadURL, db,push,set } from "../firebaseConfig.js";
+import { child,get,ref, Sref, getStorage, uploadBytesResumable, getDownloadURL, db,push,set,remove } from "../firebaseConfig.js";
+
+
+window.onload = () => {
+  let userInfo = JSON.parse(sessionStorage.getItem("user"));
+  if (!userInfo) {
+      window.location = "http://localhost:5500/firebase-config/products-assignment/";
+  } else {
+      if (userInfo.role !== "admin") {
+        window.location = "http://localhost:5500/firebase-config/products-assignment/pages/products.html";
+      }else{
+        getAllProducts(displayProducts);
+      }
+  }
+};
 
 let Files = [];
 let fileReader = [];
 let filesLinksArray = [];
+let products = [];
+
 
 const productName = document.getElementById("productName");
 const productPrice = document.getElementById("productPrice");
@@ -12,6 +28,9 @@ const productDesc = document.getElementById("productDesc");
 const imgHolder = document.getElementById("imgHolder");
 const selectImgBtn = document.getElementById("selectImg");
 const uploadBtn = document.getElementById("uploadImg");
+
+const productTable = document.getElementById("product-table");
+const progress = document.getElementById("progress");
 
 
 
@@ -89,8 +108,8 @@ const handleUploadData = (image, num) => {
 
   uploadTask.on('state_changed',
     (snapshot) => {
-      const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-      alert('Upload is ' + progress + '% done');
+      const uploadProgress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+      progress.innerText = `uploading data is ${uploadProgress}% done`
       switch (snapshot.state) {
         case 'paused':
           console.log('Upload is paused');
@@ -123,7 +142,9 @@ const handleUploadData = (image, num) => {
   
           set(ref(db, `products/${newProductRef.key}`), product)
             .then(res => {
-              alert('data added successfully')
+              alert('data added successfully');
+              getAllProducts(displayProducts);
+              progress.innerText="";
               productName.value="";
               productDesc.value="";
               productPrice.value="";
@@ -157,6 +178,83 @@ uploadBtn.addEventListener("click", () => {
 })
 
 
+
+function getAllProducts() {
+ products=[];
+ productTable.innerHTML="";
+  get(child(ref(db), `products/`)).then((snapshot) => {
+      if (snapshot.exists()) {
+          // console.log(snapshot.val());
+          snapshot.forEach(p => {
+              products.push(p.val());
+          });
+          console.log("pro: ", products);
+          displayProducts();
+
+      } else {
+          console.log("No data available");
+          productTable.innerText = "No data available";
+      }
+  }).catch((error) => {
+      console.error(error);
+  });
+}
+
+
+
+function displayProducts() {
+  productTable.innerHTML="";
+  products.forEach((pr) => {
+  productTable.innerHTML+=`
+<tr class="border-b border-gray-300">
+<td class="py-2 px-4">${pr.name}</td>
+<td class="py-2 px-4">${pr.description}</td>
+<td class="py-2 px-4">${pr.price}$</td>
+<td class="py-2 px-4">
+    <button class="hover:bg-blue-400 bg-blue-500 text-white px-4 py-2 rounded product-edit"  id=${pr.key}>Edit</button>
+</td>
+<td class="py-2 px-4">
+    <button class="hover:bg-red-400 bg-red-500 text-white px-4 py-2 rounded product-delete"  id=${pr.key}>delete</button>
+</td>
+</tr>
+`
+
+ });
+ addEventsToBtns()
+ products=[];
+};
+
+
+
+function addEventsToBtns(){
+  let editBtns = document.querySelectorAll(".product-edit");
+  let deleteBtns = document.querySelectorAll(".product-delete");
+  editBtns.forEach((btn)=>{
+    btn.addEventListener("click",handleProductEdit);
+  })
+  deleteBtns.forEach((btn)=>{
+    btn.addEventListener("click",handleProductDelete);
+  })
+}
+
+function handleProductEdit(event){
+  console.log(event.target.value);
+}
+
+
+
+
+
+function handleProductDelete(event){
+
+  remove(child(ref(db), `products/${event.target.id}`))
+  .then(() => {
+    // alert("data is deleted");
+    getAllProducts(displayProducts)
+}).catch((error) => {
+    console.error(error);
+});
+}
 
 
 

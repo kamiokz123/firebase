@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sign up</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<body class="flex items-center justify-center h-screen bg-gray-100">
+
+    <div class="w-96">
+        <!-- Signup Form -->
+        <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" id="signup-form">
+
+            <!-- Username Input -->
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                    Username
+                </label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" required placeholder="Enter your username">
+            </div>
+
+            <!-- Email Input -->
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
+                    Email
+                </label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="email" required placeholder="Enter your email">
+            </div>
+
+            <!-- Password Input -->
+            <div class="mb-6">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+                    Password
+                </label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" required placeholder="Enter your password">
+            </div>
+
+            <!-- Signup Button -->
+            <div class="flex flex-col gap-1 items-center justify-between">
+                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+                    Sign Up
+                </button>
+                <a class="text-blue-500" href="../index.html">login with Email and password</a>
+            </div>
+
+        </form>
+
+        
+    <div class="flex flex-col gap-2">
+        <button id="fbSignup"  class="bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700">
+            Sign in with Facebook
+        </button>
+    
+        <!-- Google Login Button -->
+        <button id="googleSignup" class="bg-red-600 text-white py-2 px-4 rounded-md hover:bg-red-700">
+            Sign in with Google
+        </button>
+    
+        <!-- GitHub Login Button -->
+        <button id="githubSignup" class="bg-gray-800 text-white py-2 px-4 rounded-md hover:bg-gray-900">
+            Sign in with GitHub
+        </button>
+     </div>
+
+
+    </div>
+
+
+    <script type="module" src="../signup.js"></script>
+</body>
+</html>
+
+<!-- git checkout -b branch-name -->

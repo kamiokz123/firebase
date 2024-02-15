@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>student ID card</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" integrity="sha512-qZvrmS2ekKPF2mSznTQsxqPgnpkI4DNTlrdUmTzrDgektczlKNRRhy5X5AAOnx5S09ydFYWWNSfcEqDTTHgtNA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.js"></script>
+    <style>
+        .form-input1 {
+            padding: 10px;
+            border: 1px solid rgba(0, 0, 0, 0.233);
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flex flex-col gap-3 p-2">
+        <h1 class="font-bold text-3xl text-center ">Download your card here</h1>
+        <a href="../index.html" class=" text-center text-blue-500 ">Go to regisration page</a>
+    </div>
+
+    <form class="flex flex-col justify-center m-5 border p-4" id="card-form">
+        <input type="number" class="form-input1 w-[300px] self-center" placeholder="Enter CNIC " id="user-cnic">
+        <button type="submit" class="border w-[150px] p-1 self-center bg-blue-500 text-white rounded-md">search</button>
+    </form>
+
+    <div id="card-divs-holder" class=" flex justify-center align-center">
+      
+        
+
+
+    </div>
+
+
+    <script type="module" src="../scripts/card.js"></script>
+</body>
+
+</html>

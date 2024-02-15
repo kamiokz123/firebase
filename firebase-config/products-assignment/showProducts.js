@@ -1,22 +1,41 @@
-import { get, child, db, ref } from "../firebase-config/firebaseConfig.js"
+import { get, child, db, ref } from "../firebaseConfig.js"
 
 const products = [];
 const productsHolder = document.getElementById("product-holder");
+const addProductBtn = document.getElementById("addProductBtn");
+const signoutBtn = document.getElementById("signoutBtn");
+console.log(productsHolder);
 
 
-window.onload = getAllProducts();
+window.onload = () => {
+    let userInfo = JSON.parse(sessionStorage.getItem("user"));
+    if (!userInfo) {
+        window.location = "http://localhost:5500/firebase-config/products-assignment/"
+    } else {
+        getAllProducts(displayProducts);
+        if (userInfo.role !== "admin") {
+            addProductBtn.style.display = "none";
+        }
+    }
+};
 
 
+signoutBtn.addEventListener("click", handleSignout)
 
-function getAllProducts() {
+function handleSignout(){
+   sessionStorage.removeItem("user");
+   window.location= "http://localhost:5500/firebase-config/products-assignment/";
+}
 
+function getAllProducts(func) {
+    productsHolder.innerText = "loading.....";
     get(child(ref(db), `products/`)).then((snapshot) => {
         if (snapshot.exists()) {
             console.log(snapshot.val());
             snapshot.forEach(p => {
                 products.push(p.val());
 
-                displayProducts();
+                func();
 
             });
         } else {
@@ -31,6 +50,7 @@ function getAllProducts() {
 
 function displayProducts() {
     productsHolder.innerHTML = "";
+
     products.forEach((pr) => {
         productsHolder.innerHTML += `
      <div class="w-[250px] min-h-[350px] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700" >
@@ -48,6 +68,7 @@ function displayProducts() {
    </div>
    </div>
  `
+
     })
 
     addEventsToProductsBtns();
@@ -57,8 +78,8 @@ function displayProducts() {
 
 function addEventsToProductsBtns() {
     let productsBtns = [...document.getElementsByClassName("product-detail-btn")];
-    productsBtns.forEach((btn)=>{
-      btn.addEventListener("click",(event) => navigateToDetail(event))
+    productsBtns.forEach((btn) => {
+        btn.addEventListener("click", (event) => navigateToDetail(event))
     });
     console.log(productsBtns);
 }
@@ -66,7 +87,7 @@ function addEventsToProductsBtns() {
 function navigateToDetail(event) {
     var { id } = event.target
     console.log(id);
-    window.location = `firebase/productDetail/index.html?id=${id}`
+    window.location = `http://localhost:5500/firebase-config/products-assignment/pages/productDetail.html?id=${id}`
 }
 
 

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>firebase storage</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .form-input1 {
+            padding: 8px;
+            border: 1px solid rgba(0, 0, 0, 0.233);
+            margin: 6px;
+        }
+
+        #imgHolder img {
+            width: 150px;
+            height: 150px;
+            margin: 10px;
+        }
+      
+
+        textarea {
+            display: block;
+            margin: 5px;
+        }
+
+        label {
+            margin: 1px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main flex flex-col justify-center align-center gap-3">
+
+        <div class="header flex justify-between pl-3 pr-3  bg-black align-center">
+        <h1 class=" font-bold text-3xl m-2 text-white">Add , Edit or Delete your products</h1>
+        <button class="bg-white text-black border h-[90%] p-1 mt-2 rounded-md hover:bg-blue-500 hover:text-white"><a href="./products.html">Products Page</a></button>
+        </div>
+
+        <div class="pr-form flex p-5  m-5 align-center justify-center ">
+            <div class="max-w-[700px] min-w-[300px] flex flex-col">
+            <input type="text" name="" id="productName" placeholder="enter product name" class="form-input1">
+            <input type="text" name="" id="productPrice" placeholder="enter product price" class="form-input1">
+            <input type="number" name="" id="productStock" placeholder="enter product stock" class="form-input1">
+            <label for="productDesc">product description :</label>
+            <textarea type="number" name="" id="productDesc" placeholder="enter product Description" cols="20" rows="8"
+                class="form-input1"> </textarea>
+            <div id="imgHolder"></div>
+            <button id="selectImg" class="form-input1 bg-blue-500 text-white rounded-md">select images</button>
+            <button id="uploadImg" class="form-input1 bg-green-500 text-white rounded-md">Add product</button>
+            <span id="progress"></span>
+        </div>
+        </div>
+
+
+
+        <div class="max-w-screen-md mx-auto">
+            <table class="min-w-full bg-white border border-gray-300 rounded-lg overflow-hidden">
+                <thead class="bg-gray-200">
+                    <tr>
+                        <th class="py-2 px-4 text-left">Name</th>
+                        <th class="py-2 px-4 text-left">Description</th>
+                        <th class="py-2 px-4 text-left">Price</th>
+                        <th class="py-2 px-4 text-left"></th>
+                        <th class="py-2 px-4 text-left"></th>
+                    </tr>
+                </thead>
+                <tbody id="product-table">
+
+                    <!-- Add more rows as needed -->
+                </tbody>
+            </table>
+        </div>
+
+
+    </div>
+
+
+    <script type="module" src="../addProducts.js"></script>
+</body>
+
+</html>

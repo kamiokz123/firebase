@@ -1,4 +1,4 @@
-import { ref, Sref, getStorage, uploadBytesResumable, getDownloadURL, db, push, set } from "http://127.0.0.1:5500/firebase-config/firebaseConfig.js";
+import { ref, Sref, getStorage, uploadBytesResumable, getDownloadURL, db, push, set } from "http://127.0.0.1:5500/firebase/firebase-config/firebaseConfig.js";
 
 let imageFile;
 
@@ -88,8 +88,7 @@ function handleForm(e) {
 
         set(ref(db, `saylani-applicants/${newProductRef.key}`), user)
           .then(res => {
-            alert('data added successfully');
-
+            alert('your form is submitted successfully');
             imgHolder.innerHTML="";
             progressDetail.innerText="";
             userName.value = "";
